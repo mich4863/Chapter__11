@@ -10,6 +10,10 @@ namespace ConsoleApp._11._8
     {
         static void Main(string[] args)
         {
+            Quadrilateral quadrilateral = new Quadrilateral(2, 2, 6, 2, 6, 6, 2, 6);
+
+            Console.WriteLine(quadrilateral.Area(quadrilateral));
+            Console.ReadLine();
         }
     }
 }

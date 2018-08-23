@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp._11._8
 {
-    public class Trapezoid : Quadrilateral
+    public class Trapezoid
     {
     }
 }
