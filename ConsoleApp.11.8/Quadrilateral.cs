@@ -32,6 +32,10 @@ namespace ConsoleApp._11._8
             Y4 = y4;
         }
 
+        public Quadrilateral()
+        {
+        }
+
         public int X1
         {
             get
@@ -136,12 +140,15 @@ namespace ConsoleApp._11._8
             }
         }
 
-        public double Area(Quadrilateral quadrilateral)
+        public virtual double Area(Quadrilateral quadrilateral)
         {
-            double first = Math.Sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
-            double second = Math.Sqrt((x1 - x4) * (x1 - x4) + (y1 - y4) * (y1 - y4));
+            double result = (x1 - x2) * (x3 - x4);
 
-            return first * second;
+            if(result < 0.0)
+            {
+                result = result - result - result;
+            }
+            return result;
         }
     }
 }
