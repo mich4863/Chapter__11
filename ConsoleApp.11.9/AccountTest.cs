@@ -10,11 +10,13 @@ namespace ConsoleApp._11._9
     {
         static void Main(string[] args)
         {
-            Account account = new Account(1000);
-            CheckingAccount checkingAccount = new CheckingAccount(1000, 0.10m);
-            checkingAccount.Debit(100);
+            Account account = new Account(900);
+            Console.WriteLine($"Account: {account.AccountBalance:C}");
+            account.Credit(300);
+            account.Debit(100);
+            Console.WriteLine($"New account balance: {account.AccountBalance}");
 
-            Console.WriteLine(checkingAccount.AccountBalance);
+            
 
             Console.ReadLine();
         }

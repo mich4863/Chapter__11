@@ -9,42 +9,47 @@ namespace ConsoleApp._11._9
     public class CheckingAccount : Account
     {
         // Field
-        private decimal feeCharged;
+        private decimal fee;
 
         // Constructor
-        public CheckingAccount(decimal accountBalance, decimal feeCharged) 
+        public CheckingAccount(decimal accountBalance, decimal fee) 
             : base(accountBalance)
         {
-            FeeCharged = feeCharged;
+            Fee = fee;
         }
 
         // Property
-        public decimal FeeCharged
+        public decimal Fee
         {
             get
             {
-                return feeCharged;
+                return fee;
             }
 
             set
             {
-                feeCharged = value;
+                fee = value;
             }
         }
 
         // Override withdraw method. Charges fee if amount is withdraw from account.
-        public override bool Debit(decimal amount)
-        {      
-            bool check = base.Debit(amount);
-
-            if(check == true)
-            {
-                decimal result = AccountBalance * FeeCharged;
-                AccountBalance = AccountBalance - result;
-            }
-            return check;
+        public override void Credit(decimal amount)
+        {
+            base.Credit(amount);
+            AccountBalance = fee;
         }
 
-
+        public override bool Debit(decimal amount)
+        {
+            if(base.Debit(amount))
+            {
+                AccountBalance = fee;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

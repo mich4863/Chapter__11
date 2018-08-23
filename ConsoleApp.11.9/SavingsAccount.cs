@@ -39,8 +39,7 @@ namespace ConsoleApp._11._9
         // Interest rate
         public decimal CalculateInterest()
         {
-            decimal earnedAmount = AccountBalance * percentage;
-            return earnedAmount;
+            return AccountBalance * percentage / 100m;
         }
     }
 }

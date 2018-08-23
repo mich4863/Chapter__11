@@ -39,7 +39,7 @@ namespace ConsoleApp._11._9
         }
 
         // Add amount to account
-        public void Credit(decimal amount)
+        public virtual void Credit(decimal amount)
         {
             AccountBalance = AccountBalance + amount;
         }
@@ -47,17 +47,16 @@ namespace ConsoleApp._11._9
         // WithDraw amount from account
         public virtual bool Debit(decimal amount)
         {
-            bool check = false;
             if(amount < AccountBalance)
             {
                 AccountBalance = AccountBalance - amount;
-                check = true;
+                return true;
             }
             else
             {
                 Console.WriteLine("Debit amount exceeded account balance.");
+                return false;
             }
-            return check;
         }
     }
 }
