@@ -12,7 +12,7 @@ namespace ConsoleApp._11._9
         {
             Account account = new Account(1000);
             CheckingAccount checkingAccount = new CheckingAccount(1000, 0.10m);
-            checkingAccount.Withdraw(100);
+            checkingAccount.Debit(100);
 
             Console.WriteLine(checkingAccount.AccountBalance);
 

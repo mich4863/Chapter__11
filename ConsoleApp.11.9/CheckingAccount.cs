@@ -8,14 +8,17 @@ namespace ConsoleApp._11._9
 {
     public class CheckingAccount : Account
     {
+        // Field
         private decimal feeCharged;
 
+        // Constructor
         public CheckingAccount(decimal accountBalance, decimal feeCharged) 
             : base(accountBalance)
         {
             FeeCharged = feeCharged;
         }
 
+        // Property
         public decimal FeeCharged
         {
             get
@@ -29,9 +32,10 @@ namespace ConsoleApp._11._9
             }
         }
 
-        public override bool Withdraw(decimal amount)
+        // Override withdraw method. Charges fee if amount is withdraw from account.
+        public override bool Debit(decimal amount)
         {      
-            bool check = base.Withdraw(amount);
+            bool check = base.Debit(amount);
 
             if(check == true)
             {

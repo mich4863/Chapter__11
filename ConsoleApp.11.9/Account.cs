@@ -8,13 +8,16 @@ namespace ConsoleApp._11._9
 {
     public class Account
     {
+        // Field
         private decimal accountBalance;
 
+        // Constructor
         public Account(decimal accountBalance)
         {
             AccountBalance = accountBalance;
         }
 
+        // Property
         public decimal AccountBalance
         {
             get
@@ -35,12 +38,14 @@ namespace ConsoleApp._11._9
             }
         }
 
+        // Add amount to account
         public void Credit(decimal amount)
         {
             AccountBalance = AccountBalance + amount;
         }
 
-        public virtual bool Withdraw(decimal amount)
+        // WithDraw amount from account
+        public virtual bool Debit(decimal amount)
         {
             bool check = false;
             if(amount < AccountBalance)

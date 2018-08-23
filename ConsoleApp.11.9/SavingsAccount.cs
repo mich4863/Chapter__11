@@ -8,14 +8,17 @@ namespace ConsoleApp._11._9
 {
     public class SavingsAccount : Account
     {
+        // Field
         private decimal percentage;
 
+        // Constructor
         public SavingsAccount(decimal accountBalance, decimal percentage) 
             : base(accountBalance)
         {
             Percentage = percentage;
         }
 
+        // Property
         public decimal Percentage
         {
             get
@@ -33,6 +36,7 @@ namespace ConsoleApp._11._9
             }
         }
 
+        // Interest rate
         public decimal CalculateInterest()
         {
             decimal earnedAmount = AccountBalance * percentage;
