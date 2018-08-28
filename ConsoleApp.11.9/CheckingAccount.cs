@@ -32,18 +32,18 @@ namespace ConsoleApp._11._9
             }
         }
 
-        // Override withdraw method. Charges fee if amount is withdraw from account.
+        // Override Debit and Credit method. Charges fee if amount are added or withdraw from account.
         public override void Credit(decimal amount)
         {
             base.Credit(amount);
-            AccountBalance = fee;
+            AccountBalance -= fee;
         }
 
         public override bool Debit(decimal amount)
         {
             if(base.Debit(amount))
             {
-                AccountBalance = fee;
+                AccountBalance = AccountBalance - fee;
                 return true;
             }
             else

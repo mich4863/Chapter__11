@@ -47,14 +47,21 @@ namespace ConsoleApp._11._9
         // WithDraw amount from account
         public virtual bool Debit(decimal amount)
         {
-            if(amount < AccountBalance)
+            if(amount <= AccountBalance && amount != 0)
             {
                 AccountBalance = AccountBalance - amount;
                 return true;
             }
             else
             {
-                Console.WriteLine("Debit amount exceeded account balance.");
+                if(amount == 0)
+                {
+                    Console.WriteLine("Can't withdraw 0.");
+                }
+                else
+                {
+                    Console.WriteLine("Debit amount exceeded account balance.");
+                }
                 return false;
             }
         }

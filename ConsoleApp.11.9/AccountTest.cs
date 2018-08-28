@@ -10,43 +10,43 @@ namespace ConsoleApp._11._9
     {
         static void Main(string[] args)
         {
-            Account account = new Account(900);
-            Console.WriteLine($"Account: {account.AccountBalance:C}");
-            account.Credit(300);
-            account.Debit(100);
-            Console.WriteLine($"New account balance: {account.AccountBalance}");
+            try
+            {
+                //-------------- Creates the account with 900, adds 300 and withdraw 100. ---------------
+                Account account = new Account(900);
+                Console.WriteLine($"Account balance: {account.AccountBalance:C}");
+                account.Credit(300);
+                account.Debit(100);
+                Console.WriteLine($"New account balance: {account.AccountBalance:C}\n");
 
+                // ----------- Creates the accountSave with 1000 and interest rate with 10 percentage. -------------- 
+                SavingsAccount accountSave = new SavingsAccount(900, 10);
+                Console.WriteLine($"AccountSave balance: {accountSave.AccountBalance:C}");
+                accountSave.Credit(200);
+                accountSave.Debit(100);
+                Console.WriteLine($"AccountSave current balance: {accountSave.AccountBalance:C}");
 
-           /* Account acc1 = new Account(100);
-            Console.WriteLine("The intial balance of account 1 is {0:C}", acc1.Balance);
-            acc1.Credit(100);
-            acc1.Debit(50);
-            Console.WriteLine("The final balance of account 1 is {0:C}", acc1.Balance);
-            Console.WriteLine();
-            Account acc2 = new Account(-100);
-            Console.WriteLine("The intial balance of account 2 is {0:C}", acc2.Balance);
-            acc2.Credit(30);
-            acc2.Debit(40);
-            Console.WriteLine("The final balance of account 2 is {0:C}", acc2.Balance);
-            Console.WriteLine();
+                // Find interest earned and add it to account balance
+                decimal interestEarned = accountSave.CalculateInterest();
+                accountSave.Credit(interestEarned);
+                Console.WriteLine($"AccountSave balance with added interest earned: {accountSave.AccountBalance:C}\n");
 
-            SavingsAccount acc3 = new SavingsAccount(100, 5);
-            Console.WriteLine("The intial balance of account 3 is {0:C}", acc3.Balance);
-            acc3.Credit(200);
-            acc3.Debit(40);
-            Console.WriteLine("The current balance of account 3 is {0:C}", acc3.Balance);
-            decimal interest = acc3.CalculateInterest();
-            acc3.Credit(interest);
-            Console.WriteLine("The final balance of account 3 is {0:C}", acc3.Balance);
-            Console.WriteLine();
+                //----------- Creates the accountCheck with 200 and fee with 20. Adds 200 or withdraw 100. ----------------
+                CheckingAccount accountCheck = new CheckingAccount(200, 20);
+                Console.WriteLine($"AccountCheck balance: {accountCheck.AccountBalance:C}");
 
-            CheckingAccount acc4 = new CheckingAccount(100, 2.5M);
-            Console.WriteLine("The intial balance of account 4 is {0:C}", acc4.Balance);
-            acc4.Credit(100);
-            acc4.Debit(70);
-            Console.WriteLine("The final balance of account 4 is {0:C}", acc4.Balance);
+                // Credit 200
+                accountCheck.Credit(200);
+                Console.WriteLine($"AccountCheck balance (Credit 200): {accountCheck.AccountBalance:C}");
 
-            Console.ReadKey();*/
+                // Debit 100
+                accountCheck.Debit(100);
+                Console.WriteLine($"AccountCheck balance (Debit 100): {accountCheck.AccountBalance:C}");
+            }
+            catch
+            {
+                Console.WriteLine("Account must be equal or grater than 0.");
+            }
             Console.ReadLine();
         }
     }
